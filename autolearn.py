@@ -12,11 +12,11 @@ import streamlit as st
 from streamlit_autorefresh import st_autorefresh
 
 def true_data(t):
-    return np.sin(t/5) + np.random.normal(loc=0, scale=0.001, size=len(t) if not isinstance(t, int) else 1)
+    return np.sin(t/20) + np.random.normal(loc=0, scale=0.001, size=len(t) if not isinstance(t, int) else 1)
     # return np.sin(t/7 + np.cos(t/3)) + np.random.normal(loc=0, scale=0.001, size=len(t) if not isinstance(t, int) else 1)
 
 if 'ts' not in st.session_state or 'ys' not in st.session_state:
-    st.session_state['ts'] = np.arange(-100, 0)
+    st.session_state['ts'] = np.arange(-22, 0)
     st.session_state['ys'] = true_data(st.session_state['ts']).tolist()
     st.session_state['ts'] = st.session_state['ts'].tolist()
 
