@@ -49,7 +49,7 @@ model.fit(X, Y)
 
 pred_ys = st.session_state['ys'][-window:]
 pred_ts = st.session_state['ts'][-window:]
-for i in range(horizon):
+for i in range(1, horizon):
     pred_ys.append(model.predict(
         [pred_ys[-window:]]
     )[0])
