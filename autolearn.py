@@ -40,7 +40,7 @@ X = []
 Y = []
 for i in range(len(st.session_state['ts'])-window-horizon):
     X.append(st.session_state['ys'][i:i+window])
-    Y.append(st.session_state['ys'][i+window+1])
+    Y.append(st.session_state['ys'][i+window])
 X = np.array(X)
 Y = np.array(Y)
 
