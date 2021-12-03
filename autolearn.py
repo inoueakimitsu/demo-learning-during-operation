@@ -26,13 +26,13 @@ st.title('Demo: Learning during operation')
 '''Learning is performed approximately once per second.
 The learning process uses the K nearest neighbor method, which has a small computational load.'''
 
-new_t = st_autorefresh(interval=1000, limit=1000, key="data_input")
+new_t = st_autorefresh(interval=1000, limit=10000, key="data_input")
 new_y = true_data(new_t)[0]
 
 st.session_state['ts'].append(new_t)
 st.session_state['ys'].append(new_y)
 
-window = 10
+window = 3
 horizon = 20
 
 X = []
