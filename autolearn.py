@@ -60,6 +60,7 @@ plt.plot(st.session_state['ts'], st.session_state['ys'], label="Observed")
 plt.plot(pred_ts, pred_ys, "--", label="Predicted")
 plt.ylabel("value")
 plt.xlabel("time")
+plt.xlim(left=new_t-100, right=new_t+horizon+window)
 plt.legend()
 
 st.pyplot(fig)
