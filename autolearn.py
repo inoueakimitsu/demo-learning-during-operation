@@ -46,8 +46,16 @@ X = np.array(X)
 Y = np.array(Y)
 
 # model = KNeighborsRegressor(n_neighbors=1)
-model = MLPRegressor()
-model.fit(X, Y)
+if 'model' not in st.session_state:
+    model = MLPRegressor()
+    model.fit(X, Y)
+    st.session_state['model'] = model
+
+model = st.session_state['model']
+
+if new_t % 10 == 0:
+    model.fit(X, Y)
+    st.session_state['model'] = model
 
 pred_ys = st.session_state['ys'][-window:]
 pred_ts = st.session_state['ts'][-window:]
