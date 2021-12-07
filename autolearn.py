@@ -1,6 +1,7 @@
 import numpy as np
 
 from sklearn.neighbors import KNeighborsRegressor
+from sklearn.neural_network import MLPRegressor
 
 import matplotlib.pyplot as plt
 import matplotlib
@@ -27,7 +28,7 @@ st.title('Demo: Learning during operation')
 '''Learning is performed approximately once per second.
 The learning process uses the K nearest neighbor method, which has a small computational load.'''
 
-new_t = st_autorefresh(interval=1000, limit=10000, key="data_input")
+new_t = st_autorefresh(interval=1000, limit=1000000, key="data_input")
 new_y = true_data(new_t)[0]
 
 st.session_state['ts'].append(new_t)
@@ -44,7 +45,8 @@ for i in range(len(st.session_state['ts'])-window-horizon):
 X = np.array(X)
 Y = np.array(Y)
 
-model = KNeighborsRegressor(n_neighbors=1)
+# model = KNeighborsRegressor(n_neighbors=1)
+model = MLPRegressor()
 model.fit(X, Y)
 
 pred_ys = st.session_state['ys'][-window:]
