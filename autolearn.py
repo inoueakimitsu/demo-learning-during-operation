@@ -25,8 +25,7 @@ st.title('Demo: Learning during operation')
 
 '''This is a demonstration of a time series forecasting model that continuously learns while in operation.'''
 
-'''Learning is performed approximately once per second.
-The learning process uses the K nearest neighbor method, which has a small computational load.'''
+'''Learning is performed approximately once per 10 seconds. '''
 
 new_t = st_autorefresh(interval=1000, limit=1000000, key="data_input")
 new_y = true_data(new_t)[0]
